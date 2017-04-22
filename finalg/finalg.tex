@@ -1,4 +1,4 @@
-% Created 2017-04-21 Fri 22:32
+% Created 2017-04-22 Sat 19:37
 \documentclass[presentation]{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -18,7 +18,7 @@
 \tolerance=1000
 \usetheme{Madrid}
 \author{Maxim Litvak}
-\date{2017-04-22}
+\date{22 April, 2017}
 \title{Finance through algorithmic lens}
 \hypersetup{
   pdfkeywords={},
@@ -60,6 +60,17 @@
 \end{itemize}
 \end{frame}
 \begin{frame}[label=sec-2-2]{Example: find an atom in the universe}
+\begin{block}{1st attempt}
+\begin{itemize}
+\item Check each atom if it's the right one
+\item With some luck, the 1st guess works
+\item With no luck, the last guess works (after $10^{80}$ guess operations)
+\item On average we'd need $5*10^79$ operations
+\item Can we do better than this?
+\end{itemize}
+\end{block}
+\end{frame}
+\begin{frame}[label=sec-2-3]{Example: find an atom in the universe}
 \begin{block}{Algorithm}
 \begin{itemize}
 \item Split the universe in 2 halves: in which half is the atom we need?
@@ -74,10 +85,10 @@
 \end{itemize}
 \end{block}
 \end{frame}
-\begin{frame}[label=sec-2-3]{Example: Hanoi tower}
-\includegraphics[width=.9\linewidth]{./img/finalg/tower_hanoi2.jpg}
-\end{frame}
 \begin{frame}[label=sec-2-4]{Example: Hanoi tower}
+\includegraphics[width=.9\linewidth]{./img/tower_hanoi2.jpg}
+\end{frame}
+\begin{frame}[label=sec-2-5]{Example: Hanoi tower}
 \begin{block}{Task}
 Move all disks from one peg (tower) to another
 \end{block}
@@ -89,7 +100,7 @@ Move all disks from one peg (tower) to another
 \end{itemize}
 \end{block}
 \end{frame}
-\begin{frame}[label=sec-2-5]{Example: Hanoi tower}
+\begin{frame}[label=sec-2-6]{Example: Hanoi tower}
 \begin{itemize}
 \item 3 moves needed for 2 disks
 \item 7 moves are needed for 3 disks
@@ -98,22 +109,22 @@ Move all disks from one peg (tower) to another
 \item Number of moves goes up exponentially with number of disks!
 \end{itemize}
 \end{frame}
-\begin{frame}[label=sec-2-6]{Example: Hanoi tower}
+\begin{frame}[label=sec-2-7]{Example: Hanoi tower}
 \begin{itemize}
 \item We've seen a task with an algorithm that is fast on huge input (atom searching)
 \item We've seen a task with an algorithm that is slow on small input (Hanoi tower)
 \end{itemize}
 \end{frame}
-\begin{frame}[label=sec-2-7]{Picture to take away}
-\includegraphics[width=.9\linewidth]{./img/finalg/bintree.png}
+\begin{frame}[label=sec-2-8]{Picture to take away}
+\includegraphics[width=.9\linewidth]{./img/bintree.png}
 \begin{itemize}
 \item The height is \alert{log(n)} (fast), the width is \alert{$n=2^h$}, the number of nodes is \alert{$2n - 1 = 2^{h+1} - 1$} (slow)
 \end{itemize}
 \end{frame}
-\begin{frame}[label=sec-2-8]{Picture to take away}
-\includegraphics[width=.9\linewidth]{./img/finalg/tree2.png}
+\begin{frame}[label=sec-2-9]{Picture to take away}
+\includegraphics[width=.9\linewidth]{./img/tree2.png}
 \end{frame}
-\begin{frame}[label=sec-2-9]{Paradoxes - Multiplication}
+\begin{frame}[label=sec-2-10]{Paradoxes - Multiplication}
 \begin{block}{It's possible to multiply 2 numbers faster than the school method}
 \begin{itemize}
 \item Andrey Kolmogorov in 1960 conjectured that there's no multiplication method faster than the school method (used by the humanity for thousands of years), and organized seminar to prove it
@@ -121,19 +132,19 @@ Move all disks from one peg (tower) to another
 \end{itemize}
 \end{block}
 \end{frame}
-\begin{frame}[label=sec-2-10]{Paradoxes - Multiplication}
-\includegraphics[width=.9\linewidth]{./img/finalg/gwh-problem-posing.jpg}
-\end{frame}
 \begin{frame}[label=sec-2-11]{Paradoxes - Multiplication}
-\includegraphics[width=.9\linewidth]{./img/finalg/gwh-problem-solving.jpg}
+\includegraphics[width=.9\linewidth]{./img/gwh-problem-posing.jpg}
 \end{frame}
 \begin{frame}[label=sec-2-12]{Paradoxes - Multiplication}
-\includegraphics[width=.9\linewidth]{./img/finalg/gwh-solution-validated.jpg}
+\includegraphics[width=.9\linewidth]{./img/gwh-problem-solving.jpg}
 \end{frame}
 \begin{frame}[label=sec-2-13]{Paradoxes - Multiplication}
-\includegraphics[width=.9\linewidth]{./img/finalg/gwh-not-your-fault.jpg}
+\includegraphics[width=.9\linewidth]{./img/gwh-solution-validated.jpg}
 \end{frame}
-\begin{frame}[fragile,label=sec-2-14]{Paradoxes - Multiplication}
+\begin{frame}[label=sec-2-14]{Paradoxes - Multiplication}
+\includegraphics[width=.9\linewidth]{./img/gwh-not-your-fault.jpg}
+\end{frame}
+\begin{frame}[fragile,label=sec-2-15]{Paradoxes - Multiplication}
  \begin{block}{School}
 \begin{verbatim}
  25 
@@ -149,7 +160,7 @@ x
 $(2\times10 + 5)(1\times10 + 7) = (2\times1)\times100 + (2\times7 + 5\times1)\times10 + (5\times7)\times1 = 425$
 \end{block}
 \end{frame}
-\begin{frame}[fragile,label=sec-2-15]{Paradoxes - Multiplication}
+\begin{frame}[fragile,label=sec-2-16]{Paradoxes - Multiplication}
  \begin{block}{Karatsuba}
 \begin{verbatim}
 (2*10 + 5)(1*10 + 7) = x*100 + y*10 + z*1 = ...
@@ -162,7 +173,7 @@ y = (2 + 5)*(1 + 7) - (x + z) = 56 - 37 = 19
 \end{verbatim}
 \end{block}
 \end{frame}
-\begin{frame}[label=sec-2-16]{Paradoxes - Multiplication}
+\begin{frame}[label=sec-2-17]{Paradoxes - Multiplication}
 \begin{block}{Difference}
 \begin{itemize}
 \item School method - 4 multiplications and some additions
@@ -171,32 +182,32 @@ y = (2 + 5)*(1 + 7) - (x + z) = 56 - 37 = 19
 \end{itemize}
 \end{block}
 \end{frame}
-\begin{frame}[label=sec-2-17]{Paradoxes - Braess paradox}
+\begin{frame}[label=sec-2-18]{Paradoxes - Braess paradox}
 \begin{itemize}
 \item Decreasing the number of opportunities might increase the efficiency
 \item In option pricing - adding an opportunity can't reduce the price
 \end{itemize}
 \end{frame}
-\begin{frame}[label=sec-2-18]{Paradoxes - Braess paradox}
-\includegraphics[width=.9\linewidth]{/Users/lab/Dropbox/ext/org/img/finalg/braess.png}
+\begin{frame}[label=sec-2-19]{Paradoxes - Braess paradox}
+\includegraphics[width=.9\linewidth]{./img/braess.png}
 \begin{itemize}
 \item The roads START-DOWN and UP-END take 1 hour, the roads S-up and Down-t depend on traffic (100\% cars on the road - 1 hour, 50\% - 30min)
 \item Initial equilibrium - 1.5h trip time (one half goes the upper way)
 \item Adding high-speed UP-DOWN highway (with 0h time to cross it) increases the time to 2h
 \end{itemize}
 \end{frame}
-\begin{frame}[label=sec-2-19]{What is "fast"}
+\begin{frame}[label=sec-2-20]{What is "fast"}
 \begin{itemize}
 \item From algorithmic point of view, under the "speed" is considered the asymptotic behaviour of the algorithm on input
 \item For a certain input, algorithm A might be faster than B, but "slower" in the asymptotic sense, i.e. with input big enough B outperforms A
 \item Big-O notation: f(n) = O(g(n)) if (up to a constant) for some n,  g(n) catches up or outperforms f(n)
 \end{itemize}
 \end{frame}
-\begin{frame}[label=sec-2-20]{What is "fast"}
-\includegraphics[width=.9\linewidth]{./img/grades.png}
+\begin{frame}[label=sec-2-21]{What is "fast"}
+\includegraphics[width=.9\linewidth]{file.png}
 \end{frame}
 
-\begin{frame}[label=sec-2-21]{What is "hard" to compute}
+\begin{frame}[label=sec-2-22]{What is "hard" to compute}
 \begin{itemize}
 \item As a rule of thumb, the algorithms that can be computed in polynomial time are considered as "\alert{easy}" to compute
 \item \ldots{} and algorithms which computation time can't be bound by a polynom (e.g. exponential) are considered to be "\alert{hard}"
@@ -204,7 +215,7 @@ y = (2 + 5)*(1 + 7) - (x + z) = 56 - 37 = 19
 \item A lot of "hard" algorithms are considered to be "hard" since no faster solution is known (includes P = NP problem)
 \end{itemize}
 \end{frame}
-\begin{frame}[label=sec-2-22]{Examples of algorithm's speed (current stand)}
+\begin{frame}[label=sec-2-23]{Examples of algorithm's speed (current stand)}
 \begin{itemize}
 \item Sorting numbers - O(n log(n))
 \item Binary search - O(log(n))
@@ -212,8 +223,8 @@ y = (2 + 5)*(1 + 7) - (x + z) = 56 - 37 = 19
 \item Integer number factorization (important in cryptography) - exponential
 \end{itemize}
 \end{frame}
-\begin{frame}[label=sec-2-23]{Non-standard examples on complexity \ldots{}}
-\includegraphics[width=.9\linewidth]{./img/finalg/xkcd_alg.png}
+\begin{frame}[label=sec-2-24]{Non-standard examples on complexity \ldots{}}
+\includegraphics[width=.9\linewidth]{./img/xkcd_alg.png}
 \begin{itemize}
 \item xkcd.com
 \end{itemize}
@@ -267,7 +278,7 @@ y = (2 + 5)*(1 + 7) - (x + z) = 56 - 37 = 19
 \begin{itemize}
 \item Fast, but not so efficient generator \ldots{} (xkcd.com)
 \end{itemize}
-\includegraphics[width=.9\linewidth]{./img/finalg/xkcd_random.png}
+\includegraphics[width=.9\linewidth]{./img/xkcd_random.png}
 \end{frame}
 \begin{frame}[label=sec-3-6]{Case: generate normal r.v.}
 \begin{itemize}
@@ -297,7 +308,7 @@ y = (2 + 5)*(1 + 7) - (x + z) = 56 - 37 = 19
 \item r (interest rate)
 \item T (time to maturity)
 \item R (rating of the client)
-\item K (quality category of the principal)
+\item K (quality category of the collateral)
 \end{itemize}
 \end{block}
 \end{frame}

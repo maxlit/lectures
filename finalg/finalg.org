@@ -1,6 +1,6 @@
 #+TITLE: Finance through algorithmic lens
 #+AUTHOR: Maxim Litvak
-#+DATE:      2017-04-22 
+#+DATE:      22 April, 2017 
 #+OPTIONS: H:2 toc:t num:t
 #+LATEX_CLASS: beamer
 #+LATEX_CLASS_OPTIONS: [presentation]
@@ -39,7 +39,7 @@
 - We've seen an algorithm being extremely fast on a large input
 ** Example: Hanoi tower
 #+NAME:   fig:toh1
- [[./img/finalg/tower_hanoi2.jpg]]
+ [[./img/tower_hanoi2.jpg]]
 ** Example: Hanoi tower
 *** Task
 Move all disks from one peg (tower) to another
@@ -58,27 +58,27 @@ Move all disks from one peg (tower) to another
 - We've seen a task with an algorithm that is slow on small input (Hanoi tower)
 ** Picture to take away
 #+NAME:   fig:explog
- [[./img/finalg/bintree.png]]
+ [[./img/bintree.png]]
 - The height is *log(n)* (fast), the width is *$n=2^h$*, the number of nodes is *$2n - 1 = 2^{h+1} - 1$* (slow)
 ** Picture to take away
 #+NAME:   fig:explog2
- [[./img/finalg/tree2.png]]
+ [[./img/tree2.png]]
 ** Paradoxes - Multiplication
 *** It's possible to multiply 2 numbers faster than the school method
 - Andrey Kolmogorov in 1960 conjectured that there's no multiplication method faster than the school method (used by the humanity for thousands of years), and organized seminar to prove it
 - A 17 years old student (Anatoly Karatsuba) found a faster method ...
 ** Paradoxes - Multiplication
 #+NAME:   fig:gwh1
- [[./img/finalg/gwh-problem-posing.jpg]]
+ [[./img/gwh-problem-posing.jpg]]
 ** Paradoxes - Multiplication
 #+NAME:   fig:gwh2
-     [[./img/finalg/gwh-problem-solving.jpg]]
+     [[./img/gwh-problem-solving.jpg]]
 ** Paradoxes - Multiplication
 #+NAME:   fig:gwh3
-     [[./img/finalg/gwh-solution-validated.jpg]]
+     [[./img/gwh-solution-validated.jpg]]
 ** Paradoxes - Multiplication
 #+NAME:   fig:gwh4
-     [[./img/finalg/gwh-not-your-fault.jpg]]
+     [[./img/gwh-not-your-fault.jpg]]
 ** Paradoxes - Multiplication
 *** School
 #+begin_example 
@@ -116,7 +116,7 @@ y = (2 + 5)*(1 + 7) - (x + z) = 56 - 37 = 19
 - In option pricing - adding an opportunity can't reduce the price
 ** Paradoxes - Braess paradox
 #+NAME:   fig:braess
-[[file:~/Dropbox/ext/org/img/finalg/braess.png]]
+[[file:./img/braess.png]]
 - The roads START-DOWN and UP-END take 1 hour, the roads S-up and Down-t depend on traffic (100% cars on the road - 1 hour, 50% - 30min)
 - Initial equilibrium - 1.5h trip time (one half goes the upper way)
 - Adding high-speed UP-DOWN highway (with 0h time to cross it) increases the time to 2h
@@ -125,32 +125,26 @@ y = (2 + 5)*(1 + 7) - (x + z) = 56 - 37 = 19
 - For a certain input, algorithm A might be faster than B, but "slower" in the asymptotic sense, i.e. with input big enough B outperforms A
 - Big-O notation: f(n) = O(g(n)) if (up to a constant) for some n,  g(n) catches up or outperforms f(n) 
 ** What is "fast"
-#+begin_src gnuplot :results output :file ./img/grades.png 
-set bar 1.000000 front
-set style circle radius graph 0.02, first 0.00000, 0.00000 
-set style ellipse size graph 0.05, 0.03, first 0.00000 angle 0 units xy
-set key inside left top vertical Right noreverse enhanced autotitle box lt black linewidth 1.000 dashtype solid
-set style textbox transparent margins  1.0,  1.0 border
-unset logscale
-set samples 50, 50
-unset paxis 1 tics
-unset paxis 2 tics
-unset paxis 3 tics
-unset paxis 4 tics
-unset paxis 5 tics
-unset paxis 6 tics
-unset paxis 7 tics
-set title "Functions growth" 
-set title  font ",20" norotate
-set paxis 1 range [ * : * ] noreverse nowriteback
-set paxis 2 range [ * : * ] noreverse nowriteback
-set paxis 3 range [ * : * ] noreverse nowriteback
-set paxis 4 range [ * : * ] noreverse nowriteback
-set paxis 5 range [ * : * ] noreverse nowriteback
-set paxis 6 range [ * : * ] noreverse nowriteback
-set paxis 7 range [ * : * ] noreverse nowriteback
-set colorbox vertical origin screen 0.9, 0.2, 0 size screen 0.05, 0.6, 0 front  noinvert bdefault
-plot [0:3] log(x), x, x*log(x), 2**x
+#+begin_src gnuplot :exportss output :file file.png
+reset
+
+set title "Algorithms' running time on input"
+
+set xlabel "X"
+set xrange [0:5]
+set xtics 0,1,5
+
+
+set ylabel "Y"
+set yrange [-5:30]
+set ytics -5,5,30
+
+hanoi_tower(x) = 2**x
+sort_numbers(x) = x*log(x)
+mult_numbers(x) = x**2
+binary_search(x) = log(x)
+
+plot hanoi_tower(x), sort_numbers(x), mult_numbers(x), binary_search(x)
 #+end_src
 ** What is "hard" to compute
 - As a rule of thumb, the algorithms that can be computed in polynomial time are considered as "*easy*" to compute
@@ -164,7 +158,7 @@ plot [0:3] log(x), x, x*log(x), 2**x
 - Integer number factorization (important in cryptography) - exponential
 ** Non-standard examples on complexity ...
 #+NAME:   fig:xkcd_alg
- [[./img/finalg/xkcd_alg.png]]
+ [[./img/xkcd_alg.png]]
 - xkcd.com
 * Finance
 ** Algorithmic topics in finance
@@ -194,7 +188,7 @@ plot [0:3] log(x), x, x*log(x), 2**x
 ** Case: generate normal r.v.
 - Fast, but not so efficient generator ... (xkcd.com)
 #+NAME:   fig:explog
- [[./img/finalg/xkcd_random.png]]
+ [[./img/xkcd_random.png]]
 ** Case: generate normal r.v.
 - Example: middle square method
 - Simple, but has different flaws
